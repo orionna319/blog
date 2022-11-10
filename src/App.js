@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Player from './views/Player'
 import { get } from './request'
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <p id="hitokoto">{ text || ":D 获取中..."}</p>
+      <Player />
     </div>
   );
 }

@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/canvas",
+    path: "/blog/canvas",
     element: <Canvas />,
   }
 ]);
