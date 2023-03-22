@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import Player from './views/Player'
+import Progress from './views/Progress'
 import { get } from './request'
 import './App.css';
 
+// TODO: Router
 function App() {
   const [text, setText] = useState("")
 
@@ -27,6 +29,7 @@ function App() {
     <div className="App">
       <p id="hitokoto">{ text || ":D 获取中..."}</p>
       <Player />
+      <Progress />
     </div>
   );
 }
