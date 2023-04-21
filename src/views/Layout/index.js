@@ -7,13 +7,13 @@ const Layout = () => {
       <nav className="layout-nav">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/blog">Home</Link>
           </li>
           <li>
-            <Link to="/Progress">Progress</Link>
+            <Link to="/blog/progress">Progress</Link>
           </li>
           <li>
-            <Link to="/Canvas">Canvas</Link>
+            <Link to="/blog/canvas">Canvas</Link>
           </li>
         </ul>
       </nav>
