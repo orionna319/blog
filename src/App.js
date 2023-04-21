@@ -1,35 +1,23 @@
-import { useEffect, useState } from 'react'
-import Player from './views/Player'
+import React from 'react'
+import Layout from './views/Layout'
 import Progress from './views/Progress'
-import { get } from './request'
-import './App.css';
+import Canvas from './views/Canvas'
+import './App.scss';
+import { Routes, Route } from 'react-router-dom';
+import ErrorPage from './views/ErrorPage';
+import Home from './views/Home';
 
-// TODO: Router
 function App() {
-  const [text, setText] = useState("")
-
-  const getText = async () => {
-    const response = await get('https://v1.hitokoto.cn')  
-    const { hitokoto, from_who } = response || {}
-
-    setText(`${hitokoto}--${from_who || "佚名"}`)
-  }
-
-  useEffect(() => {
-    
-    const timer = setInterval(() => {
-      getText()
-    }, 1500)
-
-    return () => clearInterval(timer)
-
-  }, [])
-
   return (
     <div className="App">
-      <p id="hitokoto">{ text || ":D 获取中..."}</p>
-      <Player />
-      <Progress />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="progress" element={<Progress />} />
+          <Route path="canvas" element={<Canvas />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

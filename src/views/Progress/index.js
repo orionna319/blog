@@ -1,5 +1,5 @@
 import { useRef, useEffect, memo } from 'react'
-import './index.css'
+import './index.scss'
 const Progress = () => {
   const progress = useRef()
   const progressVal = useRef()
@@ -19,11 +19,14 @@ const Progress = () => {
         clearInterval(timer)
       }
     }, 100)
+    return () => clearInterval(timer)
   })
 
   return (
-    <div ref={progress} className="progress" style={{ '--percent': 0 }}>
-      <p>正在下载<span ref={progressVal} data-progress></span>%</p>
+    <div className="progress-container">
+      <div ref={progress} className="progress" style={{ '--percent': 0 }}>
+        <p>正在下载<span ref={progressVal} data-progress></span>%</p>
+      </div>
     </div>
   )
 }
